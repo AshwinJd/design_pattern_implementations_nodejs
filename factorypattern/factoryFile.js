@@ -1,13 +1,13 @@
 const carFunc = require("./function1File");
 const bikeFunc = require("./function2File");
 
-const vehicleProcess = { carFunc, bikeFunc };
+const VehicleFactory = { carFunc, bikeFunc };
 
-function vehicleFactory(type, parameters, done) {
-  const getVehicle = vehicleProcess[type];
-  return new getVehicle(parameters, done);
+function getVehicle(type, parameters, done) {
+  const vehicleFactory = VehicleFactory[type];
+  return new vehicleFactory(parameters, done);
 }
 
 module.exports = {
-  vehicleFactory
+  getVehicle
 }
